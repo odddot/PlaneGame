@@ -77,7 +77,9 @@ class PlaneGame(object):
             self.hero.speed = 0
 
     def __check_collide(self):
-        pass
+
+        # 1. 子弹摧毁敌机
+        pygame.sprite.groupcollide(self.hero.bullets, self.enemy_group, True, True)
 
     def __update_sprites(self):
 
