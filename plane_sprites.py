@@ -7,6 +7,8 @@ SCREEN_RECT = pygame.Rect(0, 0, 480, 700)
 FRAME_PER_SEC = 60
 # 创建敌机的定时器常量
 CREATE_ENEMY_EVENT = pygame.USEREVENT
+# 英雄发射子弹事件
+HERO_FIRE_EVENT = pygame.USEREVENT + 1
 
 
 class GameSprite(pygame.sprite.Sprite):
@@ -104,4 +106,6 @@ class Hero(GameSprite):
         elif self.rect.right > SCREEN_RECT.right:
             self.rect.right = SCREEN_RECT.right
 
+    def fire(self):
+        print("发射子弹...")
 
