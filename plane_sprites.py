@@ -72,9 +72,26 @@ class Enemy(GameSprite):
 
         # 2. 判断是否飞出屏幕，如果是，需要从敌机精灵组中删除
         if self.rect.y >= SCREEN_RECT.height:
-            print("飞出屏幕，需要从敌机精灵组中删除")
+            # print("飞出屏幕，需要从敌机精灵组中删除")
             # kill方法可以将精灵从所有精灵组中移出，精灵就会被自动销毁
             self.kill()
 
     def __del__(self):
-        print("敌机被销毁 %s" % self.rect)
+        # print("敌机被销毁 %s" % self.rect)
+        pass
+
+
+class Hero(GameSprite):
+    """ 英雄精灵 """
+
+    def __init__(self):
+
+        # 1. 调用父类方法，设置image和speed
+        super().__init__("./images/me1.png", 0)
+
+        # 2. 设置英雄的初始速度
+        self.rect.centerx = SCREEN_RECT.centerx
+        self.rect.bottom = SCREEN_RECT.bottom - 120
+
+    def update(self):
+        pass
