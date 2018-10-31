@@ -95,6 +95,9 @@ class Hero(GameSprite):
         self.rect.centerx = SCREEN_RECT.centerx
         self.rect.bottom = SCREEN_RECT.bottom - 120
 
+        # 创建子弹的精灵组
+        self.bullets = pygame.sprite.Group()
+
     def update(self):
 
         # 英雄在水平方向上移动
@@ -108,6 +111,16 @@ class Hero(GameSprite):
 
     def fire(self):
         print("发射子弹...")
+
+        # 1. 创建子弹精灵
+        bullet = Bullet()
+
+        # 2. 设置精灵的位置
+        bullet.rect.bottom = self.rect.y - 20
+        bullet.rect.centerx = self.rect.centerx
+
+        # 3. 将精灵添加到精灵组
+        self.bullets.add(bullet)
 
 
 class Bullet(GameSprite):
