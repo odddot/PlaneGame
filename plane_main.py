@@ -1,4 +1,3 @@
-import pygame
 from plane_sprites import *
 
 
@@ -67,7 +66,11 @@ class PlaneGame(object):
         keys_pressed = pygame.key.get_pressed()
         # 判断元组中对应的按键索引值
         if keys_pressed[pygame.K_RIGHT]:
-            print("向右移动")
+            self.hero.speed = 2
+        elif keys_pressed[pygame.K_LEFT]:
+            self.hero.speed = -2
+        else:
+            self.hero.speed = 0
 
     def __check_collide(self):
         pass

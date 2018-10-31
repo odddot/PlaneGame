@@ -94,4 +94,8 @@ class Hero(GameSprite):
         self.rect.bottom = SCREEN_RECT.bottom - 120
 
     def update(self):
-        pass
+
+        # 英雄在水平方向上移动
+        self.rect.x += self.speed
+
+
